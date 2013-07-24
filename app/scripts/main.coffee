@@ -12,6 +12,7 @@ require.config
     underscore: "../components/underscore/underscore"
     bootstrap: "vendor/bootstrap"
     backbone_marionette: "../components/backbone.marionette/lib/backbone.marionette"
+    backbone_localstorage: "../components/backbone.localStorage/backbone.localStorage"
 
   shim:
 
@@ -30,6 +31,9 @@ require.config
 
     backbone_marionette:
       exports: "Backbone.Marionette"
+      deps: ["backbone"]
+
+    backbone_localstorage:
       deps: ["backbone"]
 
     bootstrap:

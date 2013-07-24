@@ -9,7 +9,9 @@
     "modernizr": "~2.6.2",
     "backbone.marionette": "~1.0.2",
     "underscore": "~1.4.4",
-    "backbone": "~1.0.0"
+    "backbone": "~1.0.0",
+    "todomvc-common": "~0.1.7",
+    "backbone.localStorage": "~1.1.6"
   },
   "devDependencies": {}
 }
