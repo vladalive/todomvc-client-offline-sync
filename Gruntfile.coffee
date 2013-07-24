@@ -45,7 +45,7 @@ module.exports = (grunt) ->
 
     connect:
       options:
-        port: 9000
+        port: 9003
         # change this to '0.0.0.0' to access the server from outside
         hostname: "localhost"
 
@@ -249,7 +249,7 @@ module.exports = (grunt) ->
       "compass:server"
       "livereload-start"
       "connect:livereload"
-      "open"
+      # "open"
       "watch"
     ]
 
