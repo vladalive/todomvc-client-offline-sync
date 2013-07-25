@@ -13,6 +13,7 @@ require.config
     bootstrap: "vendor/bootstrap"
     backbone_marionette: "../components/backbone.marionette/lib/backbone.marionette"
     backbone_localstorage: "../components/backbone.localStorage/backbone.localStorage"
+    backbone_offline: "vendor/backbone_offline"
 
   shim:
 
@@ -35,6 +36,13 @@ require.config
 
     backbone_localstorage:
       deps: ["backbone"]
+
+    backbone_offline:
+      exports: "Offline"
+      deps: [
+        "underscore"
+        "backbone"
+      ]
 
     bootstrap:
       exports: "jquery"
