@@ -24,6 +24,8 @@ define [
 
   app.templates = Templates
 
+  app.layout = undefined
+
   app.on "initialize:before", (options) =>
 
   app.on "initialize:after", (options) =>

@@ -1,0 +1,2 @@
+%h1 Tasks
+%input#new-task{autofocus: true, placeholder: 'What needs to be done?'}

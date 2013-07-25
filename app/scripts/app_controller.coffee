@@ -1,13 +1,11 @@
 define [
   'backbone_marionette'
-  'views/home_page'
-], (Marionette, HomePageView) ->
+  'vent'
+  'views/layouts/main'
+], (Marionette, vent, MainLayout) ->
 
   class AppController extends Marionette.Controller
 
-    root: ->
-      console.log '[navigate] root'
-      new HomePageView()
-
-    missing: ->
-      console.log '[navigate] missing'
+    filterItems: (filter = '') ->
+      app.layout ||= new MainLayout
+      vent.trigger "tasks:filter", filter.trim()

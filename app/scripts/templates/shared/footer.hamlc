@@ -1,0 +1,14 @@
+%span#tasks-count
+  %strong
+    = @activeCount
+  = @activeCountLabel()
+%ul#filters
+  %li
+    %a{:href => "#"} All
+  %li
+    %a{:href => "#active"} Active
+  %li
+    %a{:href => "#completed"} Completed
+%button#clear-completed{class: ( 'hidden' if !@completedCount)}
+  Clear completed
+  = @completedCount
