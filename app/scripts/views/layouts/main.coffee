@@ -22,7 +22,8 @@ define [
       @initViews()
       @initViewsEvents()
       @render()
-      @collections.tasks.fetch()
+      @collections.tasks.fetch
+        local: true
       @
 
     initModels: ->

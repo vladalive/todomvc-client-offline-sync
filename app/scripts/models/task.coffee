@@ -1,8 +1,8 @@
 define [
-  'backbone'
-], (Backbone) ->
+  'models/base'
+], (BaseModel) ->
 
-  class Task extends Backbone.Model
+  class Task extends BaseModel
 
     defaults:
       title: ""
@@ -11,6 +11,8 @@ define [
 
     initialize: ->
       super
+      @storage = new Offline.Storage 'tasks', @,
+        autoPush: true
       @set "created_at", Date.now()  if @isNew()
 
     toggle: ->

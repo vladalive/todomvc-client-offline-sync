@@ -1,13 +1,18 @@
 define [
   'backbone'
   'models/task'
-], (Backbone, Task) ->
+  'settings'
+], (Backbone, Task, SETTINGS) ->
 
   class Tasks extends Backbone.Collection
 
     model: Task
 
-    localStorage: new Backbone.LocalStorage("tasks")
+    url: SETTINGS.server.root_url + '/v1/tasks'
+
+    initialize: ->
+      @storage = new Offline.Storage 'tasks', @,
+        autoPush: true
 
     getCompleted: ->
       @filter @_isCompleted
