@@ -11,9 +11,7 @@ define [
 
     initialize: ->
       super
-      @storage = new Offline.Storage 'tasks', @,
-        autoPush: true
-      @set "created_at", Date.now()  if @isNew()
+      @set "created_at", @_timeStamp()  if @isNew()
 
     toggle: ->
       @set "completed", not @isCompleted()

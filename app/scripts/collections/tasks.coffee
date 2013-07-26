@@ -11,8 +11,7 @@ define [
     url: SETTINGS.server.root_url + '/v1/tasks'
 
     initialize: ->
-      @storage = new Offline.Storage 'tasks', @,
-        autoPush: true
+      @storage = new Offline.Storage 'tasks', @
 
     getCompleted: ->
       @filter @_isCompleted
