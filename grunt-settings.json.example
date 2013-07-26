@@ -1,0 +1,9 @@
+{
+  "phonegap": {
+    "archive": "path/to/archive.zip",
+    "appId": "your phonegap app id",
+    "user": {
+      "token": "phonegap auth token"
+    }
+  }
+}

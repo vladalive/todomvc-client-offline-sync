@@ -9,11 +9,17 @@ module.exports = (grunt) ->
   # load all grunt tasks
   require("matchdep").filterDev("grunt-*").forEach grunt.loadNpmTasks
 
+  settingsFile = 'grunt-settings.json'
+  settings = {}
+  if grunt.file.exists settingsFile
+    settings = grunt.file.readJSON settingsFile
+
   # configurable paths
   yeomanConfig =
     app: "app"
     dist: "dist"
     tmp: ".tmp"
+    phonegap: settings.phonegap
 
   grunt.initConfig
     yeoman: yeomanConfig
@@ -234,6 +240,21 @@ module.exports = (grunt) ->
       all:
         rjsConfig: "<%= yeoman.tmp %>/scripts/main.js"
 
+    zip:
+      release:
+        src: [
+          '<%= yeoman.dist %>/**/*.*'
+        ]
+        dest: "<%= yeoman.phonegap.archive %>"
+
+    'phonegap-build':
+      release:
+        options:
+          archive: "<%= yeoman.phonegap.archive %>"
+          appId: "<%= yeoman.phonegap.appId %>"
+          user:
+            token: "<%= yeoman.phonegap.user.token %>"
+
   grunt.renameTask "regarde", "watch"
 
   grunt.registerTask "server", (target) ->
@@ -283,4 +304,9 @@ module.exports = (grunt) ->
     "jshint"
     "test"
     "build"
+  ]
+
+  grunt.registerTask "release", [
+    "zip:release"
+    "phonegap-build:release"
   ]
