@@ -1,3 +1,4 @@
+%button#sync-incr{title: 'Sync Incremental'} &lowast;
 %input#toggle-all{type: 'checkbox'}
 %label{for: 'toggle-all'}
   Mark all as complete

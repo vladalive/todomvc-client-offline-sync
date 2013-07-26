@@ -17,6 +17,7 @@ define [
 
     events:
       "click #toggle-all": "onToggleAllClick"
+      "click #sync-incr": "onSyncIncrClick"
 
     collectionEvents:
       all: "update"
@@ -35,3 +36,6 @@ define [
       isChecked = e.currentTarget.checked
       @collection.each (task) ->
         task.save completed: isChecked
+
+    onSyncIncrClick: (e) ->
+      @collection.storage.sync.incremental()
