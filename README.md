@@ -18,6 +18,9 @@
 
 Copy example config files and add your own keys and values:
 
+    cp app/scripts/settings.coffee.example \
+       app/scripts/settings.coffee
+
     cp grunt-settings.json.example \
        grunt-settings.json
 

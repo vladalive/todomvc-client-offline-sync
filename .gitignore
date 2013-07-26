@@ -6,3 +6,4 @@ app/components
 .tmp
 npm-debug.log
 grunt-settings.json
+app/scripts/settings.coffee
