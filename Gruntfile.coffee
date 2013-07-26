@@ -19,7 +19,7 @@ module.exports = (grunt) ->
     app: "app"
     dist: "dist"
     tmp: ".tmp"
-    phonegap: settings.phonegap
+    settings: settings
 
   grunt.initConfig
     yeoman: yeomanConfig
@@ -51,7 +51,7 @@ module.exports = (grunt) ->
 
     connect:
       options:
-        port: 9003
+        port: "<%= yeoman.settings.server.port %>"
         # change this to '0.0.0.0' to access the server from outside
         hostname: "localhost"
 
@@ -245,15 +245,15 @@ module.exports = (grunt) ->
         src: [
           '<%= yeoman.dist %>/**/*.*'
         ]
-        dest: "<%= yeoman.phonegap.archive %>"
+        dest: "<%= yeoman.settings.phonegap.archive %>"
 
     'phonegap-build':
       release:
         options:
-          archive: "<%= yeoman.phonegap.archive %>"
-          appId: "<%= yeoman.phonegap.appId %>"
+          archive: "<%= yeoman.settings.phonegap.archive %>"
+          appId: "<%= yeoman.settings.phonegap.appId %>"
           user:
-            token: "<%= yeoman.phonegap.user.token %>"
+            token: "<%= yeoman.settings.phonegap.user.token %>"
 
   grunt.renameTask "regarde", "watch"
 

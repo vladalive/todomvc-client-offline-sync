@@ -1,4 +1,7 @@
 {
+  "server": {
+    "port": 9003
+  },
   "phonegap": {
     "archive": "path/to/archive.zip",
     "appId": "your phonegap app id",
